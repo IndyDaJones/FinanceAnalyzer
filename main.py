@@ -115,39 +115,43 @@ def main():
         data = MySQL()
         data.connect()
 
-    except BaseException as err:
+        symbols = data.loadTicker()
+
+        logger.info("Get Info for: "+str(symbols))    
+        start = dt.datetime(2021, 1, 1)
+        logger.info("Start date: "+str(start))
+        end = dt.datetime.now()
+    
+        logger.info("End date: "+str(end))
+        for stock in symbols:
+            # Read Data
+            #ticker = pdr.DataReader(stock, 'yahoo', start=start, end=end)
+            logger.info("Get ticker data: "+stock)    
+            """
+            ticker = pdr.get_data_yahoo(stock, start, end)
+            # database import
+            persist_data(stock, ticker, end.strftime("%Y-%m-%d %H:%M:%S"))
+            macd, exp3 = claculate_macd(ticker['Adj Close'])
+            buy_price, sell_price, macd_signal = implement_macd_strategy(ticker['Adj Close'], macd, exp3)
+            """
+            
+            
+            ticker1 = data.loadTickerData(stock, 'AdjClose')
+            macd, exp3 = claculate_macd(ticker1)
+            buy_price, sell_price, macd_signal = implement_macd_strategy(ticker1, macd, exp3)
+                
+
+            """
+            print("Stock: "+ stock +"\n")
+            print("BUY: \n"+ str(buy_price) +"\n")
+            print("SELL: \n"+ str(sell_price) +"\n")
+            plot_graph(stock, ticker['Adj Close'], macd, exp3, buy_price, sell_price, macd_signal)
+            """
+
+    except Exception as err:
         logger.info("Exception cauth"+str(err))
         print(f"Unexpected {err=}, {type(err)=}")
-        raise err
-
-        
-
-    symbols = {'SPICHA.SW','SPMCHA.SW','WZEC.F','ROG.SW','NOW','CSL.AX','USSRS.SW'} 
-    logger.info("Get Info for: "+str(symbols))    
-    start = dt.datetime(2021, 1, 1)
-    logger.info("Start date: "+str(start))
-    end = dt.datetime.now()
-    
-    logger.info("End date: "+str(end))
-    for stock in symbols:
-        # Read Data
-        #ticker = pdr.DataReader(stock, 'yahoo', start=start, end=end)
-        #ticker = pdr.get_data_yahoo(stock, start, end)['Adj Close']
-        #Date       High         Low        Open       Close     Volume   Adj Close
-        logger.info("Get ticker data: "+stock)    
-        ticker = pdr.get_data_yahoo(stock, start, end)
-        # database import
-        persist_data(stock, ticker, end.strftime("%Y-%m-%d %H:%M:%S"))
-        macd, exp3 = claculate_macd(ticker['Adj Close'])
-        buy_price, sell_price, macd_signal = implement_macd_strategy(ticker['Adj Close'], macd, exp3)
-
-        """
-        print("Stock: "+ stock +"\n")
-        print("BUY: \n"+ str(buy_price) +"\n")
-        print("SELL: \n"+ str(sell_price) +"\n")
-        """
-        
-        #plot_graph(stock, ticker['Adj Close'], macd, exp3, buy_price, sell_price, macd_signal)
+        raise err  
 
 #Main function
 if __name__ == "__main__":

@@ -2476,3 +2476,199 @@
 20.11.2021 11:07:35  Get ticker data: SPICHA.SW
 20.11.2021 11:07:35  Starting new HTTPS connection (1): finance.yahoo.com:443
 20.11.2021 11:07:35  https://finance.yahoo.com:443 "GET /quote/SPICHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 04:53:04 PM Input from user:
+20.11.2021 04:53:04 PM New Ticker inserted: SPICHA.SW
+20.11.2021 04:53:14 PM Input from user:
+20.11.2021 04:53:14 PM New Ticker inserted: SPMCHA.SW
+20.11.2021 04:53:21 PM Input from user:
+20.11.2021 04:53:21 PM New Ticker inserted: WZEC.F
+20.11.2021 04:53:30 PM Input from user:
+20.11.2021 04:53:30 PM New Ticker inserted: ROG.SW
+20.11.2021 04:53:37 PM Input from user:
+20.11.2021 04:53:37 PM New Ticker inserted: NOW
+20.11.2021 04:53:42 PM Input from user:
+20.11.2021 04:53:42 PM New Ticker inserted: CSL.AX
+20.11.2021 04:53:51 PM Input from user:
+20.11.2021 04:53:51 PM New Ticker inserted: USSRS.SW
+20.11.2021 04:53:59 PM Input from user:
+20.11.2021 04:53:59 PM New Ticker inserted: CL:NMX
+20.11.2021 04:54:07 PM Input from user:
+20.11.2021 04:54:07 PM New Ticker inserted: NYSE:GOLD
+20.11.2021 04:54:10 PM Input from user:
+20.11.2021 04:54:10 PM Break
+20.11.2021 05:13:38 PM Ticker removed: Show
+20.11.2021 05:17:06 PM Ticker removed: Show
+20.11.2021 05:17:31 PM Ticker removed: Show
+20.11.2021 05:20:08 PM Ticker removed: Show
+20.11.2021 05:20:08 PM Exception cauthcan only concatenate str (not "TypeError") to str
+20.11.2021 05:21:03 PM Ticker removed: Show
+20.11.2021 05:21:34 PM Ticker removed: Show
+20.11.2021 05:22:09 PM Ticker removed: Show
+20.11.2021 05:22:50 PM Ticker removed: Show
+20.11.2021 05:25:00 PM Ticker removed: Show
+20.11.2021 05:25:25 PM Input from user:
+20.11.2021 05:25:34 PM Ticker removed: Change
+20.11.2021 05:25:42 PM Input from user:
+20.11.2021 05:25:46 PM Ticker removed: Change
+20.11.2021 05:25:51 PM Input from user:
+20.11.2021 05:26:21 PM Ticker removed: Change
+20.11.2021 05:26:22 PM Input from user:
+20.11.2021 05:26:23 PM Ticker removed: Change
+20.11.2021 05:26:24 PM Input from user:
+20.11.2021 05:26:56 PM Ticker removed: Show
+20.11.2021 05:27:12 PM Input from user:
+20.11.2021 05:27:20 PM Ticker removed: Change
+20.11.2021 05:27:32 PM Break
+20.11.2021 07:04:38  Get Info for: {"'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F',"}
+20.11.2021 07:04:39  Start date: 2021-01-01 00:00:00
+20.11.2021 07:04:40  End date: 2021-11-20 19:04:40.251768
+20.11.2021 07:05:05  Get ticker data: 'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F',
+20.11.2021 07:05:06  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:05:06  https://finance.yahoo.com:443 "GET /quote/'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F',/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 302 320
+20.11.2021 07:05:06  https://finance.yahoo.com:443 "GET /quote/CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F%20%2C?p=CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F%20%2C HTTP/1.1" 302 174
+20.11.2021 07:05:06  https://finance.yahoo.com:443 "GET /quotes/CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F%20%2C HTTP/1.1" 302 100
+20.11.2021 07:05:07  https://finance.yahoo.com:443 "GET /quotes/CL:NMX,CSL.AX,NOW,NYSE:GOLD,ROG.SW,SPICHA.SW,SPMCHA.SW,USSRS.SW,WZEC.F HTTP/1.1" 200 None
+20.11.2021 07:11:04  Get Info for: {"'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F'"}
+20.11.2021 07:11:05  Start date: 2021-01-01 00:00:00
+20.11.2021 07:11:06  End date: 2021-11-20 19:11:05.699190
+20.11.2021 07:11:07  Get ticker data: 'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F'
+20.11.2021 07:11:24  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:11:24  https://finance.yahoo.com:443 "GET /quote/'CL:NMX','CSL.AX','NOW','NYSE:GOLD','ROG.SW','SPICHA.SW','SPMCHA.SW','USSRS.SW','WZEC.F'/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 302 308
+20.11.2021 07:11:24  https://finance.yahoo.com:443 "GET /quote/CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F?p=CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F HTTP/1.1" 302 168
+20.11.2021 07:11:25  https://finance.yahoo.com:443 "GET /quotes/CL%3ANMX%20%2C%20CSL.AX%20%2C%20NOW%20%2C%20NYSE%3AGOLD%20%2C%20ROG.SW%20%2C%20SPICHA.SW%20%2C%20SPMCHA.SW%20%2C%20USSRS.SW%20%2C%20WZEC.F HTTP/1.1" 200 None
+20.11.2021 07:22:39  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 07:22:50  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 07:23:07  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 07:23:34  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 07:28:24  Get Info for: {'ROG.SW', 'CSL.AX', 'NYSE:GOLD', 'CL:NMX', 'SPMCHA.SW', 'WZEC.F', 'USSRS.SW', 'NOW', 'SPICHA.SW'}
+20.11.2021 07:28:25  Start date: 2021-01-01 00:00:00
+20.11.2021 07:28:26  End date: 2021-11-20 19:28:26.425361
+20.11.2021 07:28:31  Get ticker data: ROG.SW
+20.11.2021 07:28:33  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:28:33  https://finance.yahoo.com:443 "GET /quote/ROG.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:28:51  Get ticker data: CSL.AX
+20.11.2021 07:28:51  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:28:51  https://finance.yahoo.com:443 "GET /quote/CSL.AX/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:28:53  Get ticker data: NYSE:GOLD
+20.11.2021 07:28:53  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:28:53  https://finance.yahoo.com:443 "GET /quote/NYSE:GOLD/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 302 41
+20.11.2021 07:28:54  https://finance.yahoo.com:443 "GET /lookup?s=NYSE:GOLD HTTP/1.1" 200 None
+20.11.2021 07:29:48 PM Input from user:
+20.11.2021 07:29:48 PM Break
+20.11.2021 07:29:51 PM Ticker removed: Show
+20.11.2021 07:30:05 PM Input from user:
+20.11.2021 07:30:05 PM Ticker removed: NYSE:GOLD
+20.11.2021 07:30:07 PM Ticker removed: Show
+20.11.2021 07:30:14 PM Break
+20.11.2021 07:30:30  Get Info for: {'CSL.AX', 'ROG.SW', 'USSRS.SW', 'SPICHA.SW', 'SPMCHA.SW', 'NOW', 'CL:NMX', 'WZEC.F'}
+20.11.2021 07:30:30  Start date: 2021-01-01 00:00:00
+20.11.2021 07:30:30  End date: 2021-11-20 19:30:30.863355
+20.11.2021 07:30:30  Get ticker data: CSL.AX
+20.11.2021 07:30:30  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:31  https://finance.yahoo.com:443 "GET /quote/CSL.AX/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:33  Get ticker data: ROG.SW
+20.11.2021 07:30:33  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:33  https://finance.yahoo.com:443 "GET /quote/ROG.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:36  Get ticker data: USSRS.SW
+20.11.2021 07:30:36  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:36  https://finance.yahoo.com:443 "GET /quote/USSRS.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:38  Get ticker data: SPICHA.SW
+20.11.2021 07:30:38  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:39  https://finance.yahoo.com:443 "GET /quote/SPICHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:41  Get ticker data: SPMCHA.SW
+20.11.2021 07:30:41  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:41  https://finance.yahoo.com:443 "GET /quote/SPMCHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:43  Get ticker data: NOW
+20.11.2021 07:30:43  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:43  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 07:30:45  Get ticker data: CL:NMX
+20.11.2021 07:30:45  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 07:30:46  https://finance.yahoo.com:443 "GET /quote/CL:NMX/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 302 38
+20.11.2021 07:30:46  https://finance.yahoo.com:443 "GET /lookup?s=CL:NMX HTTP/1.1" 200 None
+20.11.2021 07:31:11 PM Input from user:
+20.11.2021 07:31:11 PM Ticker removed: CL:NMX
+20.11.2021 08:08:59 PM Break
+20.11.2021 08:09:10  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 08:09:39  Exception cauth2003 (HY000): Can't connect to MySQL server on '192.168.34.33:3306' (111)
+20.11.2021 08:15:59  Get Info for: {'SPICHA.SW', 'SPMCHA.SW', 'CSL.AX', 'USSRS.SW', 'WZEC.F', 'NOW', 'ROG.SW'}
+20.11.2021 08:16:00  Start date: 2021-01-01 00:00:00
+20.11.2021 08:16:02  End date: 2021-11-20 20:16:01.370595
+20.11.2021 08:16:06  Get ticker data: SPICHA.SW
+20.11.2021 08:16:07  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:08  https://finance.yahoo.com:443 "GET /quote/SPICHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:15  Get ticker data: SPMCHA.SW
+20.11.2021 08:16:15  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:15  https://finance.yahoo.com:443 "GET /quote/SPMCHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:17  Get ticker data: CSL.AX
+20.11.2021 08:16:17  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:18  https://finance.yahoo.com:443 "GET /quote/CSL.AX/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:19  Get ticker data: USSRS.SW
+20.11.2021 08:16:20  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:20  https://finance.yahoo.com:443 "GET /quote/USSRS.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:22  Get ticker data: WZEC.F
+20.11.2021 08:16:22  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:23  https://finance.yahoo.com:443 "GET /quote/WZEC.F/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:23  Get ticker data: NOW
+20.11.2021 08:16:23  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:24  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:16:25  Get ticker data: ROG.SW
+20.11.2021 08:16:25  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:16:26  https://finance.yahoo.com:443 "GET /quote/ROG.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:18:06  Get Info for: {'NOW', 'CSL.AX', 'SPICHA.SW', 'WZEC.F', 'ROG.SW', 'USSRS.SW', 'SPMCHA.SW'}
+20.11.2021 08:18:07  Start date: 2021-01-01 00:00:00
+20.11.2021 08:18:10  End date: 2021-11-20 20:18:10.144719
+20.11.2021 08:18:16  Get ticker data: NOW
+20.11.2021 08:18:18  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:18:19  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:20:17  Get Info for: {'NOW', 'CSL.AX', 'USSRS.SW', 'SPMCHA.SW', 'ROG.SW', 'SPICHA.SW', 'WZEC.F'}
+20.11.2021 08:20:18  Start date: 2021-01-01 00:00:00
+20.11.2021 08:20:19  End date: 2021-11-20 20:20:19.120505
+20.11.2021 08:20:21  Get ticker data: NOW
+20.11.2021 08:20:21  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:20:22  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:21:41  Get Info for: {'SPICHA.SW', 'SPMCHA.SW', 'NOW', 'CSL.AX', 'WZEC.F', 'ROG.SW', 'USSRS.SW'}
+20.11.2021 08:21:42  Start date: 2021-01-01 00:00:00
+20.11.2021 08:21:50  End date: 2021-11-20 20:21:49.591435
+20.11.2021 08:21:51  Get ticker data: SPICHA.SW
+20.11.2021 08:21:52  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:21:52  https://finance.yahoo.com:443 "GET /quote/SPICHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:22:41  Get ticker data: SPMCHA.SW
+20.11.2021 08:22:42  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:22:43  https://finance.yahoo.com:443 "GET /quote/SPMCHA.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:22:58  Get ticker data: NOW
+20.11.2021 08:22:59  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:23:00  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:24:05  Get Info for: {'USSRS.SW', 'CSL.AX', 'SPICHA.SW', 'NOW', 'ROG.SW', 'WZEC.F', 'SPMCHA.SW'}
+20.11.2021 08:24:05  Start date: 2021-01-01 00:00:00
+20.11.2021 08:24:06  End date: 2021-11-20 20:24:06.403504
+20.11.2021 08:24:07  Get ticker data: USSRS.SW
+20.11.2021 08:24:08  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:24:09  https://finance.yahoo.com:443 "GET /quote/USSRS.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:24:45  Get Info for: {'NOW', 'ROG.SW', 'WZEC.F', 'CSL.AX', 'SPICHA.SW', 'USSRS.SW', 'SPMCHA.SW'}
+20.11.2021 08:24:45  Start date: 2021-01-01 00:00:00
+20.11.2021 08:24:46  End date: 2021-11-20 20:24:46.283277
+20.11.2021 08:24:47  Get ticker data: NOW
+20.11.2021 08:24:48  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:24:48  https://finance.yahoo.com:443 "GET /quote/NOW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:25:58  Get Info for: {'WZEC.F', 'SPMCHA.SW', 'CSL.AX', 'USSRS.SW', 'SPICHA.SW', 'NOW', 'ROG.SW'}
+20.11.2021 08:25:59  Start date: 2021-01-01 00:00:00
+20.11.2021 08:25:59  End date: 2021-11-20 20:25:59.525330
+20.11.2021 08:26:00  Get ticker data: WZEC.F
+20.11.2021 08:26:01  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:26:02  https://finance.yahoo.com:443 "GET /quote/WZEC.F/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:26:56  Get Info for: {'ROG.SW', 'SPICHA.SW', 'SPMCHA.SW', 'NOW', 'WZEC.F', 'USSRS.SW', 'CSL.AX'}
+20.11.2021 08:26:57  Start date: 2021-01-01 00:00:00
+20.11.2021 08:26:58  End date: 2021-11-20 20:26:57.618525
+20.11.2021 08:26:59  Get ticker data: ROG.SW
+20.11.2021 08:26:59  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:27:00  https://finance.yahoo.com:443 "GET /quote/ROG.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:27:29  Get Info for: {'ROG.SW', 'CSL.AX', 'SPICHA.SW', 'USSRS.SW', 'SPMCHA.SW', 'NOW', 'WZEC.F'}
+20.11.2021 08:27:30  Start date: 2021-01-01 00:00:00
+20.11.2021 08:27:31  End date: 2021-11-20 20:27:30.977322
+20.11.2021 08:27:32  Get ticker data: ROG.SW
+20.11.2021 08:27:32  Starting new HTTPS connection (1): finance.yahoo.com:443
+20.11.2021 08:27:33  https://finance.yahoo.com:443 "GET /quote/ROG.SW/history?period1=1609470000&period2=1637463599&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+20.11.2021 08:29:47  Get Info for: {'CSL.AX', 'SPMCHA.SW', 'WZEC.F', 'USSRS.SW', 'NOW', 'ROG.SW', 'SPICHA.SW'}
+20.11.2021 08:29:48  Start date: 2021-01-01 00:00:00
+20.11.2021 08:29:54  End date: 2021-11-20 20:29:50.818629
+20.11.2021 08:29:55  Get ticker data: CSL.AX
