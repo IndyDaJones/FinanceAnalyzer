@@ -340,3 +340,6 @@
 19.11.2021 10:09:57  Get ticker data: USSRS.SW
 19.11.2021 10:09:57  Starting new HTTPS connection (1): finance.yahoo.com:443
 19.11.2021 10:09:57  https://finance.yahoo.com:443 "GET /quote/USSRS.SW/history?period1=1609470000&period2=1637377199&interval=1d&frequency=1d&filter=history HTTP/1.1" 200 None
+19.11.2021 10:44:41  Exception cauthconnect() takes 0 positional arguments but 1 was given
+19.11.2021 10:45:45  Exception cauthconnect() takes 0 positional arguments but 1 was given
+19.11.2021 10:46:00  Exception cauthconnect() takes 0 positional arguments but 1 was given

@@ -3,6 +3,7 @@ import pandas_datareader as pdr
 import datetime as dt
 import matplotlib.pyplot as plt
 import logger as logger
+from sql_connector import MySQL
 
 def print_data(array):   
     for index in array.index:
@@ -79,12 +80,54 @@ def claculate_macd(ticker_data):
     exp3 = macd.ewm(span=9, adjust=False).mean() 
     return macd, exp3
 
+def persist_data(stock, tickers, createdate):
+    try:
+        data = MySQL()
+        data.connect()
+        for dates in tickers.index:
+            for info in tickers:
+                if info == "High":
+                    high = tickers[info][dates]
+                elif info == "Low":
+                    low = tickers[info][dates]
+                elif info == "Open":
+                    open = tickers[info][dates]
+                elif info == "Close":
+                    close = tickers[info][dates]
+                elif info == "Volume":
+                    volume = tickers[info][dates]
+                elif info == "Adj Close":
+                    adjclose = tickers[info][dates]
+                else:
+                    print("Hi")
+                
+            #print("Date: "+str(dates)+", Ticker: "+str(stock)+", High: "+str(high)+", Low: "+str(low)+", Open: "+str(open)+", Close: "+str(close)+", Volume: "+str(volume)+", Adj Close: "+str(adjclose))
+            data.persistData(stock, "EQUITY", "USD", open, high, low, close, adjclose, volume, dates, createdate)
+            #data.persistData()
+        data.disconnect()
+    except Exception as err:
+        logger.error("Exception cauth"+str(err))
+        print(f"Unexpected {err=}, {type(err)=}")
+        raise err
+
 def main():
+    try:
+        data = MySQL()
+        data.connect()
+
+    except BaseException as err:
+        logger.info("Exception cauth"+str(err))
+        print(f"Unexpected {err=}, {type(err)=}")
+        raise err
+
+        
+
     symbols = {'SPICHA.SW','SPMCHA.SW','WZEC.F','ROG.SW','NOW','CSL.AX','USSRS.SW'} 
     logger.info("Get Info for: "+str(symbols))    
     start = dt.datetime(2021, 1, 1)
     logger.info("Start date: "+str(start))
     end = dt.datetime.now()
+    
     logger.info("End date: "+str(end))
     for stock in symbols:
         # Read Data
@@ -93,14 +136,18 @@ def main():
         #Date       High         Low        Open       Close     Volume   Adj Close
         logger.info("Get ticker data: "+stock)    
         ticker = pdr.get_data_yahoo(stock, start, end)
+        # database import
+        persist_data(stock, ticker, end.strftime("%Y-%m-%d %H:%M:%S"))
         macd, exp3 = claculate_macd(ticker['Adj Close'])
         buy_price, sell_price, macd_signal = implement_macd_strategy(ticker['Adj Close'], macd, exp3)
 
+        """
         print("Stock: "+ stock +"\n")
         print("BUY: \n"+ str(buy_price) +"\n")
         print("SELL: \n"+ str(sell_price) +"\n")
-
-        plot_graph(stock, ticker['Adj Close'], macd, exp3, buy_price, sell_price, macd_signal)
+        """
+        
+        #plot_graph(stock, ticker['Adj Close'], macd, exp3, buy_price, sell_price, macd_signal)
 
 #Main function
 if __name__ == "__main__":
