@@ -20,7 +20,7 @@ class MySQL:
     try:
         cursor = self.connection.cursor()
         # status create_dt create_by update_by
-        mySql_insert_query = "INSERT INTO Stocks_Day_Test (Status, Symbol, QuoteType, currency, Date, Open, High, Low, Close, AdjClose, Volume, create_dt, create_by, update_by) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        mySql_insert_query = "INSERT INTO Stocks_Day_Test (Status, Symbol, QuoteType, Currency, Date, Open, High, Low, Close, AdjClose, Volume, Create_dt, Create_by, Update_by) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         record = ("OK", symbol, quotetype, currency, date, open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
         cursor.execute(mySql_insert_query, record)
         self.connection.commit()
@@ -84,6 +84,25 @@ class MySQL:
     except Exception as error:
         print("Error catched"+ error)
 
+  def updateSignal(self, date, signal):
+    try:
+        cursor = self.connection.cursor()
+        # status create_dt create_by update_by
+        mySql_update_query = "UPDATE `services`.`Stocks_Day_Test` SET Recommendation = '"+signal+"' WHERE Date = '"+date.strftime('%Y-%m-%d')+"' and Recommendation <> '"+signal+"'"
+        #params = (signal, date.strftime('%Y-%m-%d %H:%M:%S'))
+        #
+        print(mySql_update_query)
+        cursor.execute(mySql_update_query)
+        print("affected rows = {}".format(cursor.rowcount))
+        self.connection.commit()
+        cursor.close()
+        
+    except mysql.connector.Error as error:
+        print("Failed to insert into MySQL table {}".format(error))
+    
+    except Exception as error:
+        print("Error catched"+ error)
+
   def updateTicker(self, symbolOld, SymbolNew):
     try:
         cursor = self.connection.cursor()
@@ -103,7 +122,7 @@ class MySQL:
         try:
             cursor = self.connection.cursor()
             # status create_dt create_by update_by
-            mySql_load_query = "SELECT Symbol FROM Ticker_Test ORDER BY Symbol"
+            mySql_load_query = "SELECT Symbol FROM Ticker_Test WHERE Status = 'OK' ORDER BY Symbol"
             cursor.execute(mySql_load_query)
             
             records = cursor.fetchall()
@@ -139,8 +158,6 @@ class MySQL:
             for row in records:
                 result[str(row[0])] = str(row[1])
             cursor.close()
-
-            return result
 
         except mysql.connector.Error as error:
             print("Failed to insert into MySQL table {}".format(error))
