@@ -1,5 +1,5 @@
 from numpy import exp
-import numpy 
+import numpy as np
 import pandas_datareader as pdr
 import pandas as pd
 import datetime as dt
@@ -19,33 +19,21 @@ def print_recommendations(array):
 def get_stock_data(symbols,start, end):
     return pdr.DataReader(symbols, 'yahoo', start=start, end=end)
 
-def implement_macd_strategy_yahoo(prices, macd, signal_data):    
-    buy_signal = {}
-    sell_signal = {}
-    macd_signal = {}
-    signal = 0
-
-    for index in prices.index:
+def implement_portfolio_matix(stock, ticker, data):
+    print(ticker)
+    print(data)    
+    
+    for index in ticker.index:
         try:
-            if macd[index] > signal_data[index]:
-                if signal != 1:
-                    buy_signal[index] = prices[index]
-                    signal = 1
-                    macd_signal[index] = signal
-            
-            elif macd[index] < signal_data[index]:
-                if signal != -1:
-                    sell_signal[index] = prices[index]
-                    signal = -1
-                    macd_signal[index] = signal
-        
+            ticker[stock][index] = data[index]
+    
         except Exception as err:
             logger.error("Exception cauth"+str(err))
             print(f"Unexpected {err=}, {type(err)=}")
             print(err)
             raise err      
 
-    return buy_signal, sell_signal, macd_signal 
+    return ticker
 
 #‘implement_macd_strategy’ which takes the stock prices (‘data’), and MACD data (‘data’) as parameters
 def implement_macd_strategy(prices, macd, signal_data):    
@@ -144,21 +132,59 @@ def main():
         start = dt.datetime(2021, 1, 1)
         logger.info("Start date: "+str(start))
         end = dt.datetime.now()
-    
+        portfolio_matrix = pd.DataFrame()
         logger.info("End date: "+str(end))
         for stock in symbols:
            
-            sql_query  = "SELECT Date, AdjClose FROM Stocks_Day_Test WHERE Symbol = '"+stock+"'"
+            sql_query  = "SELECT Date, AdjClose FROM Stocks_Day_Test WHERE Symbol = '"+stock+"' ORDER BY Date"
             ticker = pd.read_sql(sql_query,connection)
-            
-            macd, exp3 = claculate_macd(ticker)
-            buy_signal, sell_signal, macd_signal = implement_macd_strategy(ticker, macd, exp3)
 
-            update_signal("BUY", stock, buy_signal)
-            update_signal("SELL", stock, sell_signal)
+            portfolio_matrix[stock] = ticker['AdjClose']
 
+        #percent_change = portfolio_matrix['ROG.SW'].pct_change().apply(lambda x: np.log(1+x))
+        #print(percent_change)
+
+        # Covariance Matrix
+        cov_matrix = portfolio_matrix.pct_change().apply(lambda x: np.log(1+x)).cov()
+        print(cov_matrix)
+
+        # Correlation Matrix
+        #corr_matrix = portfolio_matrix.pct_change().apply(lambda x: np.log(1+x)).corr()
+        #print(corr_matrix)
+
+        # Randomly weighted portfolio's variance
+        w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.1, 'WZEC.F': 0.15, 'CSL.AX': 0.1, 'ROG.SW': 0.2}
+        port_var = cov_matrix.mul(w, axis=0).mul(w, axis=1).sum().sum()
+        print(port_var)
+
+        # Yearly returns for individual companies
+        ind_er = portfolio_matrix.resample('Y').last().pct_change().mean()
+        print(ind_er)
+
+        """
+        # Variance
+        variance = percent_change.var()
+        print(variance)
+        
+        #Volatility:
+        volatility = np.sqrt(variance * 250)
+        print(volatility)
+
+        # Covariance of two stocks
+        percent_change['STOCK A'].cov(percent_change['STOCK B'])
+
+        #Correlation of two stocks
+        percent_change['STOCK A'].corr(percent_change['STOCK B'])
+
+        # Expected Returns
+        # Define weights for allocation
+        w = [0.2, 0.8]
+        e_r_ind = percent_change.mean()
+
+        # Total expected return
+        e_r = (e_r_ind*w).sum()
+        """
             #plot_graph(stock, ticker1, macd, exp3, buy_signal, sell_signal, macd_signal)
-
     except Exception as err:
         logger.error("Exception cauth"+str(err))
         print(f"Unexpected {err=}, {type(err)=}")

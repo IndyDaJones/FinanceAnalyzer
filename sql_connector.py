@@ -20,10 +20,23 @@ class MySQL:
     try:
         cursor = self.connection.cursor()
         # status create_dt create_by update_by
-        mySql_insert_query = "INSERT INTO Stocks_Day_Test (Status, Symbol, QuoteType, Currency, Date, Open, High, Low, Close, AdjClose, Volume, Create_dt, Create_by, Update_by) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-        record = ("OK", symbol, quotetype, currency, date, open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
-        cursor.execute(mySql_insert_query, record)
-        self.connection.commit()
+        
+        # status create_dt create_by update_by
+        mySql_show_query = "SELECT `Open`, `High`,  `Low`, `Close`, `AdjClose`, `Volume` FROM Stocks_Day_Test WHERE Status='OK' AND Symbol='"+symbol+"' AND QuoteType='"+quotetype+"' AND Currency='"+currency+"' AND Date='"+date.strftime('%Y-%m-%d')+"'"
+        cursor.execute(mySql_show_query)
+        records = cursor.fetchall()
+        if cursor.rowcount == 0:
+            mySql_insert_query = "INSERT INTO Stocks_Day_Test (Status, Symbol, QuoteType, Currency, Date, Open, High, Low, Close, AdjClose, Volume, Create_dt, Create_by, Update_by) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            record = ("OK", symbol, quotetype, currency, date.strftime('%Y-%m-%d'), open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
+            cursor.execute(mySql_insert_query,record)
+            self.connection.commit()
+        else:
+            for row in records:
+                if row[0] != open or row[1] != high or row[2] != low or row[3] != close or row[4] != adjclose or row[5] != volume:
+                    mySql_insert_query = "UPDATE Stocks_Day_Test Open = '"+str(open)+"', High = '"+str(high)+"', Low ='"+str(low)+"', Close = '"+str(close)+"', AdjClose = '"+str(adjclose)+"', Volume = '"+str(volume)+"'  WHERE Status='OK' AND Symbol='"+symbol+"' AND QuoteType='"+quotetype+"' AND Currency='"+currency+"' AND Date='"+date.strftime('%Y-%m-%d')+"'"
+                    record = ("OK", symbol, quotetype, currency, date.strftime('%Y-%m-%d'), open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
+                    cursor.execute(mySql_insert_query,record)
+                    self.connection.commit()
         cursor.close()
         
     except mysql.connector.Error as error:
@@ -84,16 +97,16 @@ class MySQL:
     except Exception as error:
         print("Error catched"+ error)
 
-  def updateSignal(self, date, signal):
+  def updateSignal(self, date, stock, signal):
     try:
         cursor = self.connection.cursor()
         # status create_dt create_by update_by
-        mySql_update_query = "UPDATE `services`.`Stocks_Day_Test` SET Recommendation = '"+signal+"' WHERE Date = '"+date.strftime('%Y-%m-%d')+"' and Recommendation <> '"+signal+"'"
+        mySql_update_query = "UPDATE `services`.`Stocks_Day_Test` SET Recommendation = '"+signal+"' WHERE Symbol = '"+stock+"' AND Date = '"+date.strftime('%Y-%m-%d')+"' and Recommendation <> '"+signal+"'"
         #params = (signal, date.strftime('%Y-%m-%d %H:%M:%S'))
         #
-        print(mySql_update_query)
+        #print(mySql_update_query)
         cursor.execute(mySql_update_query)
-        print("affected rows = {}".format(cursor.rowcount))
+        #print("affected rows = {}".format(cursor.rowcount))
         self.connection.commit()
         cursor.close()
         
