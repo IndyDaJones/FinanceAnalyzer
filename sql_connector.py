@@ -28,14 +28,15 @@ class MySQL:
         if cursor.rowcount == 0:
             mySql_insert_query = "INSERT INTO Stocks_Day_Test (Status, Symbol, QuoteType, Currency, Date, Open, High, Low, Close, AdjClose, Volume, Create_dt, Create_by, Update_by) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
             record = ("OK", symbol, quotetype, currency, date.strftime('%Y-%m-%d'), open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
+            print("INSERT: ")
+            print(record)
             cursor.execute(mySql_insert_query,record)
             self.connection.commit()
         else:
             for row in records:
                 if row[0] != open or row[1] != high or row[2] != low or row[3] != close or row[4] != adjclose or row[5] != volume:
-                    mySql_insert_query = "UPDATE Stocks_Day_Test Open = '"+str(open)+"', High = '"+str(high)+"', Low ='"+str(low)+"', Close = '"+str(close)+"', AdjClose = '"+str(adjclose)+"', Volume = '"+str(volume)+"'  WHERE Status='OK' AND Symbol='"+symbol+"' AND QuoteType='"+quotetype+"' AND Currency='"+currency+"' AND Date='"+date.strftime('%Y-%m-%d')+"'"
-                    record = ("OK", symbol, quotetype, currency, date.strftime('%Y-%m-%d'), open, high, low, close, adjclose, str(volume), createdate, "sql_connector.persistData","sql_connector.persistData")  
-                    cursor.execute(mySql_insert_query,record)
+                    mySql_update_query = "UPDATE Stocks_Day_Test SET Open = '"+str(open)+"', High = '"+str(high)+"', Low ='"+str(low)+"', Close = '"+str(close)+"', AdjClose = '"+str(adjclose)+"', Volume = '"+str(volume)+"', Update_dt = NOW() WHERE Status='OK' AND Symbol='"+symbol+"' AND QuoteType='"+quotetype+"' AND Currency='"+currency+"' AND Date='"+date.strftime('%Y-%m-%d')+"'"
+                    cursor.execute(mySql_update_query)
                     self.connection.commit()
         cursor.close()
         
