@@ -112,6 +112,17 @@ def plot_graph(stock, ticker, macd, exp3, buy_price, sell_price, macd_signal):
          
     plt.show()
     """
+def reset_Signals():
+    try:
+        data = MySQL()
+        data.connect()
+        data.resetSignal()
+        data.disconnect()
+
+    except Exception as err:
+        logger.error("Exception cauth"+str(err))
+        print(f"Unexpected {err=}, {type(err)=}")
+        raise err
 
 def update_signal(signal_type, stock, signal_data):
     try:
@@ -146,9 +157,11 @@ def main():
         end = dt.datetime.now()
     
         logger.info("End date: "+str(end))
+        reset_Signals()
+        
         for stock in symbols:
            
-            sql_query  = "SELECT Date, AdjClose FROM Stocks_Day_Test WHERE Symbol = '"+stock+"'"
+            sql_query  = "SELECT Date, AdjClose FROM Stocks_Day_Test WHERE Symbol = '"+stock+"' ORDER BY Date ASC"
             ticker = pd.read_sql(sql_query,connection)
             
             macd, exp3 = claculate_macd(ticker)

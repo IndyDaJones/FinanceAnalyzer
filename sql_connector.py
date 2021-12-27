@@ -98,6 +98,25 @@ class MySQL:
     except Exception as error:
         print("Error catched"+ error)
 
+  def resetSignal(self):
+    try:
+        cursor = self.connection.cursor()
+        # status create_dt create_by update_by
+        mySql_reset_query = "UPDATE`services`.`Stocks_Day_Test` SET Recommendation = 'NO'"
+        #params = (signal, date.strftime('%Y-%m-%d %H:%M:%S'))
+        #
+        #print(mySql_update_query)
+        cursor.execute(mySql_reset_query)
+        #print("affected rows = {}".format(cursor.rowcount))
+        self.connection.commit()
+        cursor.close()
+        
+    except mysql.connector.Error as error:
+        print("Failed to insert into MySQL table {}".format(error))
+    
+    except Exception as error:
+        print("Error catched"+ error)
+
   def updateSignal(self, date, stock, signal):
     try:
         cursor = self.connection.cursor()
