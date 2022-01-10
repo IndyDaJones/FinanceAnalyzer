@@ -74,7 +74,7 @@ def main():
 
         # Eeighted portfolio's variance
         #w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.1, 'WZEC.F': 0.15, 'CSL.AX': 0.1, 'ROG.SW': 0.1, '1704395.SW': 0.1}
-        w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.1, 'WZEC.F': 0.15, 'CSL.AX': 0.1, 'ROG.SW': 0.2}
+        w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.175, 'CSL.AX': 0.175, 'ROG.SW': 0.2}
         port_var = cov_matrix.mul(w, axis=0).mul(w, axis=1).sum().sum()
         
         # Yearly returns for individual companies
@@ -116,32 +116,24 @@ def main():
             #print(counter, symbol)
             data[symbol+' weight'] = [w[counter] for w in p_weights]
 
+        
+        
         portfolios  = pd.DataFrame(data)
         portfolios.head() # Dataframe of the 10000 portfolios created
+        min_vol_port = portfolios.iloc[portfolios['Volatility'].idxmin()]
 
+        rf = 0.01 # risk factor
+        optimal_risky_port = portfolios.iloc[((portfolios['Returns']-rf)/portfolios['Volatility']).idxmax()]
+        print(optimal_risky_port)
+        
         # Plot efficient frontier
         portfolios.plot.scatter(x='Volatility', y='Returns', marker='o', s=10, alpha=0.3, grid=True, figsize=[10,10])
-
-        min_vol_port = portfolios.iloc[portfolios['Volatility'].idxmin()]
-        # idxmin() gives us the minimum value in the column specified.                               
-        
-        # plotting the minimum volatility portfolio
-        plt.subplots(figsize=[10,10])
         plt.scatter(portfolios['Volatility'], portfolios['Returns'],marker='o', s=10, alpha=0.3)
         plt.scatter(min_vol_port[1], min_vol_port[0], color='r', marker='*', s=500)
 
         # Finding the optimal portfolio
-        rf = 0.01 # risk factor
-        optimal_risky_port = portfolios.iloc[((portfolios['Returns']-rf)/portfolios['Volatility']).idxmax()]
-        
-        # Plotting optimal portfolio
-        plt.subplots(figsize=(10, 10))
-        plt.scatter(portfolios['Volatility'], portfolios['Returns'],marker='o', s=10, alpha=0.3)
-        plt.scatter(min_vol_port[1], min_vol_port[0], color='r', marker='*', s=500)
         plt.scatter(optimal_risky_port[1], optimal_risky_port[0], color='g', marker='*', s=500)
         plt.show()
-
-            #plot_graph(stock, ticker1, macd, exp3, buy_signal, sell_signal, macd_signal)
     except Exception as err:
         logger.error("Exception cauth"+str(err))
         print(f"Unexpected {err=}, {type(err)=}")
