@@ -88,30 +88,6 @@ def plot_graph(stock, ticker, macd, exp3, buy_price, sell_price, macd_signal):
     ax.legend(lines, [l.get_label() for l in lines], loc='upper left')
     plt.show()
 
-    #BUY and SELL Plot
-    #ax = plt.subplot2grid((8,1), (0,0), rowspan = 5, colspan = 1)
-    #ax = plt.subplot2grid((8,1), (5,0), rowspan = 3, colspan = 1)
-    """
-    ax.plot(ticker['AdjClose'], color = 'skyblue', linewidth = 2, label = stock)
-    ax.plot(ticker['AdjClose'].index, buy_price, marker = '^', color = 'green', markersize = 10, label = 'BUY SIGNAL', linewidth = 0)
-    ax.plot(ticker['AdjClose'].index, sell_price, marker = 'v', color = 'r', markersize = 10, label = 'SELL SIGNAL', linewidth = 0)
-    ax.legend()
-    ax.set_title('MACD SIGNALS')
-    ax.plot(macd, color = 'grey', linewidth = 1.5, label = 'MACD')
-    ax.plot(macd_signal, color = 'skyblue', linewidth = 1.5, label = 'SIGNAL')
-
-    
-    for i in range(len(googl_macd)):
-        if str(googl_macd['hist'][i])[0] == '-':
-            ax2.bar(googl_macd.index[i], googl_macd['hist'][i], color = '#ef5350')
-        else:
-            ax2.bar(googl_macd.index[i], googl_macd['hist'][i], color = '#26a69a')
-    
-    
-    plt.legend(loc = 'lower right')
-         
-    plt.show()
-    """
 def reset_Signals():
     try:
         data = MySQL()
