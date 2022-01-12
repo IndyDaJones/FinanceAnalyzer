@@ -12990,3 +12990,6 @@
 10.01.2022 07:49:33  findfont: score(<Font 'Ubuntu' (Ubuntu-L.ttf) normal normal 300 normal>) = 10.145
 10.01.2022 07:49:33  findfont: score(<Font 'Loma' (Loma-Bold.ttf) normal normal 700 normal>) = 10.335
 10.01.2022 07:49:33  findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/jonas/.local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+12.01.2022 08:25:31  Get Info for: {'SPICHA.SW', 'CSL.AX', 'NOW', 'USSRS.SW', 'ROG.SW', 'SPMCHA.SW'}
+12.01.2022 08:25:31  Start date: 2021-01-01 00:00:00
+12.01.2022 08:25:31  End date: 2022-01-12 20:25:31.693327
