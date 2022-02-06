@@ -74,7 +74,7 @@ def main():
 
         # Eeighted portfolio's variance
         #w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.1, 'WZEC.F': 0.15, 'CSL.AX': 0.1, 'ROG.SW': 0.1, '1704395.SW': 0.1}
-        w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.175, 'CSL.AX': 0.175, 'ROG.SW': 0.2}
+        w = {'SPICHA.SW': 0.3, 'NOW': 0.05, 'USSRS.SW': 0.1, 'SPMCHA.SW': 0.175, 'CSL.AX': 0.175, 'ROG.SW': 0.1, 'FB': 0.1}
         port_var = cov_matrix.mul(w, axis=0).mul(w, axis=1).sum().sum()
         
         # Yearly returns for individual companies

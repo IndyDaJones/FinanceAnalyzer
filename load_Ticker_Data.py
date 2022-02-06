@@ -35,7 +35,8 @@ def main():
     try:
         data = MySQL()
         connection = data.connect()
-        symbols = data.loadTicker()
+        #symbols = data.loadTicker()
+        symbols = {'FB'}
         logger.info("Get Info for: "+str(symbols))    
         start = dt.datetime(2021, 1, 1)
         logger.info("Start date: "+str(start))
