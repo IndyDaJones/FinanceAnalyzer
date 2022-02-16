@@ -15692,3 +15692,15 @@
 06.02.2022 07:29:27  findfont: score(<Font 'Ubuntu' (Ubuntu-L.ttf) normal normal 300 normal>) = 10.145
 06.02.2022 07:29:27  findfont: score(<Font 'Loma' (Loma-Bold.ttf) normal normal 700 normal>) = 10.335
 06.02.2022 07:29:27  findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/jonas/.local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+08.02.2022 08:14:38  Get Info for: {'SPICHA.SW', 'CSL.AX', 'SPMCHA.SW', 'NOW', 'USSRS.SW', 'BTC-USD', 'ROG.SW', 'FB'}
+08.02.2022 08:14:38  Start date: 2021-01-01 00:00:00
+08.02.2022 08:14:38  End date: 2022-02-08 20:14:38.783224
+09.02.2022 07:32:21  Get Info for: {'NOW', 'SPMCHA.SW', 'FB', 'BTC-USD', 'USSRS.SW', 'ROG.SW', 'SPICHA.SW', 'CSL.AX'}
+09.02.2022 07:32:21  Start date: 2021-01-01 00:00:00
+09.02.2022 07:32:21  End date: 2022-02-09 19:32:21.200800
+12.02.2022 08:44:24  Get Info for: {'NOW', 'CSL.AX', 'SPMCHA.SW', 'SPICHA.SW', 'USSRS.SW', 'FB', 'BTC-USD', 'ROG.SW'}
+12.02.2022 08:44:24  Start date: 2021-01-01 00:00:00
+12.02.2022 08:44:24  End date: 2022-02-12 20:44:24.959350
+16.02.2022 07:38:02  Get Info for: {'BTC-USD', 'SPMCHA.SW', 'FB', 'ROG.SW', 'SPICHA.SW', 'NOW', 'USSRS.SW', 'CSL.AX'}
+16.02.2022 07:38:02  Start date: 2021-01-01 00:00:00
+16.02.2022 07:38:02  End date: 2022-02-16 19:38:02.347854
